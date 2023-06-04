@@ -1,4 +1,8 @@
-# from src.data import make_dataset
+import sys
+
+sys.path.insert(0, "../..")
+from src.datasets import get_arabic
+from src.settings import presets
 from src.models import rnn_models, metrics, train_model
 from src.settings import SearchSpace, TrainerSettings
 from pathlib import Path
