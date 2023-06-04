@@ -9,7 +9,7 @@ import torch
 from loguru import logger
 from torch.nn.utils.rnn import pad_sequence
 
-from src.models import data_tools
+from src import data_tools
 from src.settings import Settings
 
 

@@ -73,7 +73,7 @@ if __name__ == "__main__":
     # have a look in src.settings to see how SearchSpace is created.
     # If you want to search other ranges, you change this in the settings file.
     config = SearchSpace(
-        input_size=3,
+        input_size=13,
         output_size=20,
         tune_dir=Path("models/ray").resolve(),
         data_dir=Path("data/raw/").resolve(),

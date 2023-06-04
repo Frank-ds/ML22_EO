@@ -50,7 +50,7 @@ presets = Settings(
     modeldir=root / "models",
     logdir=root / "logs",
     modelname="model.pt",
-    batchsize=64,
+    batchsize=32,
 )
 
 
