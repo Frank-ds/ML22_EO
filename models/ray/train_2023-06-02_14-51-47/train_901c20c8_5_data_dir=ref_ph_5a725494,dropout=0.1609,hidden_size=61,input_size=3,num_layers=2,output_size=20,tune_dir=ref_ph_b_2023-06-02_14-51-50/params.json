@@ -1,9 +1,0 @@
-{
-  "data_dir": "/workspaces/MLopdracht/data/raw/ArabicTrain.txt",
-  "dropout": 0.16090601079858252,
-  "hidden_size": 61,
-  "input_size": 3,
-  "num_layers": 2,
-  "output_size": 20,
-  "tune_dir": "/workspaces/MLopdracht/models/ray"
-}

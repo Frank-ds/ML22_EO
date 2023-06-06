@@ -1,0 +1,11 @@
+Failure # 1 (occurred at 2023-06-06_11-14-41)
+[36mray::ImplicitFunc.train()[39m (pid=31919, ip=172.17.0.3, repr=train)
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/ray/tune/trainable/trainable.py", line 384, in train
+    raise skipped from exception_cause(skipped)
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/ray/tune/trainable/function_trainable.py", line 336, in entrypoint
+    return self._trainable_func(
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/ray/tune/trainable/function_trainable.py", line 653, in _trainable_func
+    output = fn()
+  File "/workspaces/MLopdracht/hypertune.py", line 40, in train
+    train_steps=len(trainloader.stream()),
+TypeError: object of type 'generator' has no len()

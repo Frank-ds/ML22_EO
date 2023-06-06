@@ -1,0 +1,27 @@
+Failure # 1 (occurred at 2023-06-06_11-16-01)
+[36mray::ImplicitFunc.train()[39m (pid=2832, ip=172.17.0.3, repr=train)
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/ray/tune/trainable/trainable.py", line 384, in train
+    raise skipped from exception_cause(skipped)
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/ray/tune/trainable/function_trainable.py", line 336, in entrypoint
+    return self._trainable_func(
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/ray/tune/trainable/function_trainable.py", line 653, in _trainable_func
+    output = fn()
+  File "/workspaces/MLopdracht/hypertune.py", line 64, in train
+    trainer.loop()
+  File "/workspaces/MLopdracht/src/models/train_model.py", line 124, in loop
+    train_loss = self.trainbatches()
+  File "/workspaces/MLopdracht/src/models/train_model.py", line 152, in trainbatches
+    yhat = self.model(x)
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/workspaces/MLopdracht/src/models/rnn_models.py", line 60, in forward
+    x, _ = self.rnn(x)
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/torch/nn/modules/rnn.py", line 996, in forward
+    self.check_forward_args(input, hx, batch_sizes)
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/torch/nn/modules/rnn.py", line 253, in check_forward_args
+    self.check_input(input, batch_sizes)
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/torch/nn/modules/rnn.py", line 218, in check_input
+    raise RuntimeError(
+RuntimeError: input.size(-1) must be equal to input_size. Expected 3, got 13

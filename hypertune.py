@@ -1,10 +1,6 @@
-import sys
-
-sys.path.insert(0, "../..")
 from src.datasets import get_arabic
-from src.settings import presets
 from src.models import rnn_models, metrics, train_model
-from src.settings import SearchSpace, TrainerSettings
+from src.settings import SearchSpace, TrainerSettings, presets
 from pathlib import Path
 from ray.tune import JupyterNotebookReporter
 from ray import tune
@@ -18,9 +14,6 @@ from ray.tune.search.bohb import TuneBOHB
 from loguru import logger
 from filelock import FileLock
 
-ArabicTrain = "data/raw/ArabicTrain.txt"
-ArabicTest = "data/raw/ArabicTest.txt"
-
 
 def train(config: Dict, checkpoint_dir=None):
     """
@@ -33,7 +26,7 @@ def train(config: Dict, checkpoint_dir=None):
     # access the datadir
     data_dir = config["data_dir"]
     with FileLock(data_dir / ".lock"):
-        trainloader, validloader = ArabicTrain, ArabicTest
+        trainloader, validloader = get_arabic(presets)
 
     # we set up the metric
     accuracy = metrics.Accuracy()
@@ -63,8 +56,8 @@ def train(config: Dict, checkpoint_dir=None):
         settings=trainersettings,
         loss_fn=torch.nn.CrossEntropyLoss(),
         optimizer=torch.optim.Adam,
-        traindataloader=trainloader,
-        validdataloader=validloader,
+        traindataloader=trainloader.stream(),
+        validdataloader=validloader.stream(),
         scheduler=torch.optim.lr_scheduler.ReduceLROnPlateau,
     )
 

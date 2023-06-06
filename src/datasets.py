@@ -1,14 +1,11 @@
 from __future__ import annotations
-
 import re
 from pathlib import Path
 from typing import Callable, Iterator, List, Optional, Sequence, Tuple
-
 import numpy as np
 import torch
 from loguru import logger
 from torch.nn.utils.rnn import pad_sequence
-
 from src import data_tools
 from src.settings import Settings
 
