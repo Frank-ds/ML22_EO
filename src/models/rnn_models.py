@@ -79,7 +79,7 @@ class AttentionGRU(nn.Module):
         )
         self.attention = nn.MultiheadAttention(
             embed_dim=config["hidden_size"],
-            num_heads=4,
+            num_heads=4,  # deelbaaar door de hiddensize
             dropout=config["dropout"],
             batch_first=True,
         )
