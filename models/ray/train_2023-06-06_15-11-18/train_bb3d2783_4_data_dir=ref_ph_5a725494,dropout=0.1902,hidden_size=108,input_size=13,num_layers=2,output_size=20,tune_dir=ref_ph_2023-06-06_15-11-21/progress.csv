@@ -1,0 +1,2 @@
+iterations,train_loss,test_loss,Accuracy,time_this_iter_s,done,training_iteration,trial_id,date,timestamp,time_total_s,pid,hostname,node_ip,time_since_restore,iterations_since_restore
+0,2.3176049619045074,1.824348186745363,0.39108455882352944,32.69787359237671,False,1,bb3d2783,2023-06-06_15-12-00,1686064320,32.69787359237671,30773,8fa062c8815e,172.17.0.3,32.69787359237671,1

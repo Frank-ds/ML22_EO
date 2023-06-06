@@ -15,7 +15,7 @@ from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 
-from src.models import data_tools22
+from src import data_tools
 from src.models.metrics import Metric
 from src.settings import TrainerSettings
 from src.typehinting import GenericModel
@@ -86,7 +86,7 @@ class Trainer:
     ) -> None:
         self.model = model
         self.settings = settings
-        self.log_dir = data_tools22.dir_add_timestamp(settings.logdir)
+        self.log_dir = data_tools.dir_add_timestamp(settings.logdir)
         self.loss_fn = loss_fn
         self.optimizer = optimizer
         self.traindataloader = traindataloader

@@ -1,0 +1,9 @@
+{
+  "data_dir": "/workspaces/MLopdracht/data/raw",
+  "dropout": 0.16410067632476227,
+  "hidden_size": 60,
+  "input_size": 13,
+  "num_layers": 2,
+  "output_size": 20,
+  "tune_dir": "/workspaces/MLopdracht/models/ray"
+}

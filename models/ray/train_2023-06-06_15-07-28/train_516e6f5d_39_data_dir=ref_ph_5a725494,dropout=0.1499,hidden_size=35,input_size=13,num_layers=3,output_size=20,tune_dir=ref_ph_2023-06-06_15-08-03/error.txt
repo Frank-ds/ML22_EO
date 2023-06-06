@@ -1,0 +1,15 @@
+Failure # 1 (occurred at 2023-06-06_15-08-09)
+[36mray::ImplicitFunc.train()[39m (pid=28162, ip=172.17.0.3, repr=train)
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/ray/tune/trainable/trainable.py", line 384, in train
+    raise skipped from exception_cause(skipped)
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/ray/tune/trainable/function_trainable.py", line 336, in entrypoint
+    return self._trainable_func(
+  File "/home/vscode/.cache/pypoetry/virtualenvs/deep-learning-G3c9zDRR-py3.9/lib/python3.9/site-packages/ray/tune/trainable/function_trainable.py", line 653, in _trainable_func
+    output = fn()
+  File "/workspaces/MLopdracht/hypertune.py", line 55, in train
+    trainer = train_model.Trainer(
+  File "/workspaces/MLopdracht/src/models/train_model.py", line 89, in __init__
+    self.log_dir = data_tools.dir_add_timestamp(settings.logdir)
+  File "/workspaces/MLopdracht/src/data_tools.py", line 84, in dir_add_timestamp
+    timestamp = datetime.now().strftime("%Y%m%d-%H%M")
+NameError: name 'datetime' is not defined

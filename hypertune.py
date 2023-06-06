@@ -2,7 +2,8 @@ from src.datasets import get_arabic
 from src.models import rnn_models, metrics, train_model
 from src.settings import SearchSpace, TrainerSettings, presets
 from pathlib import Path
-from ray.tune import JupyterNotebookReporter
+
+# from ray.tune import JupyterNotebookReporter
 from ray import tune
 import torch
 import ray

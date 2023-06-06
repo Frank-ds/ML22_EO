@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import zipfile
 from pathlib import Path
-from typing import Iterator, List, Tuple
-
+from typing import Iterator, List, Optional, Tuple
+from datetime import datetime
 import requests
 import torch
 from loguru import logger
@@ -75,3 +75,15 @@ def get_file(data_dir: Path, filename: Path, url: str, unzip: bool = True) -> Pa
         with zipfile.ZipFile(path, "r") as zip_ref:
             zip_ref.extractall(data_dir)
     return path
+
+
+def dir_add_timestamp(log_dir: Optional[Path] = None) -> Path:
+    if log_dir is None:
+        log_dir = Path(".")
+    log_dir = Path(log_dir)
+    timestamp = datetime.now().strftime("%Y%m%d-%H%M")
+    log_dir = log_dir / timestamp
+    logger.info(f"Logging to {log_dir}")
+    if not log_dir.exists():
+        log_dir.mkdir(parents=True)
+    return log_dir
