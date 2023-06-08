@@ -35,7 +35,7 @@ def train(config: Dict, checkpoint_dir=None):
     model = rnn_models.GRUmodel(config)
 
     trainersettings = TrainerSettings(
-        epochs=50,
+        epochs=25,
         metrics=[accuracy],
         logdir=".",
         train_steps=len(trainloader),

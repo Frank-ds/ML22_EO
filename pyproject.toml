@@ -12,7 +12,7 @@ torchtext = "*"
 torch-tb-profiler = "^0.4.0"
 torchinfo = "^1.7.1"
 torchsummary = "^1.5.1"
-
+pandas = "^1.4.0"
 loguru = "^0.7.0"
 tqdm = "^4.65.0"
 numpy = "^1.24.3"
@@ -21,6 +21,7 @@ pydantic = "^1.10.7"
 jupyter = "^1.0.0"
 ray = {extras = ["tune"], version = "^2.4.0"}
 filelock = "^3.12.0"
+plotly-express = "^0.4.1"
 
 [tool.poetry.group.tuning.dependencies]
 gin-config = "^0.5.0"
