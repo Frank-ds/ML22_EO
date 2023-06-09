@@ -95,6 +95,7 @@ class SearchSpace(BaseSearchSpace):
     hidden_size: Union[int, SAMPLE_INT] = tune.randint(144, 256)
     dropout: Union[float, SAMPLE_FLOAT] = tune.uniform(0.05, 0.3)
     num_layers: Union[int, SAMPLE_INT] = tune.randint(2, 5)
+    num_heads: Union[int, SAMPLE_INT] = tune.qrandint(0, 16, 4)
 
 
 # qrandint number of layers om crash te voorkomen (number heads)

@@ -32,7 +32,7 @@ def train(config: Dict, checkpoint_dir=None):
     # we set up the metric
     accuracy = metrics.Accuracy()
     # and create the model with the config
-    model = rnn_models.GRUmodel(config)
+    model = rnn_models.AttentionGRU(config)
 
     trainersettings = TrainerSettings(
         epochs=25,

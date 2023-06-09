@@ -6,7 +6,7 @@ authors = ["R.Grouls <rgrouls@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.9,<3.9.7 || >3.9.7,<4.0"
 torch = { url = "https://download.pytorch.org/whl/cpu/torch-2.0.1%2Bcpu-cp39-cp39-linux_x86_64.whl"}
 torchtext = "*"
 torch-tb-profiler = "^0.4.0"
@@ -22,6 +22,8 @@ jupyter = "^1.0.0"
 ray = {extras = ["tune"], version = "^2.4.0"}
 filelock = "^3.12.0"
 plotly-express = "^0.4.1"
+streamlit = "^1.23.1"
+streamlit-option-menu = "^0.3.6"
 
 [tool.poetry.group.tuning.dependencies]
 gin-config = "^0.5.0"
