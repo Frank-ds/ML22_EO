@@ -2,6 +2,7 @@ import pandas as pd
 from streamlit_option_menu import option_menu
 import streamlit as st
 import plotly.express as px
+import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 from pathlib import Path
 from ray.tune import ExperimentAnalysis
@@ -9,10 +10,14 @@ import ray
 import dash_settings as ds
 import sys
 
-sys.path.insert(0, "..")
-directory = 'models/ray'
-directories = ds.get_directories(directory)
+# sys.path.insert(0, "..")
 
+current_directory = Path(__file__).resolve().parent
+parent_directory = current_directory.parent
+directory = parent_directory / 'models' / 'ray'
+print(directory)
+
+directories = ds.get_directories(directory)
 print(directories)
 
 ######################################## Dashboard ########################################
@@ -36,28 +41,17 @@ selected = streamlit_menu()
 
 if selected == "Hypertune parameters":
     st.title(f" {selected}")
-  
-    # for dir_path in directories:
-    #     button_label = Path(dir_path).name
-    #     if st.button(button_label):
-    #         st.write(f"You clicked the button for {button_label}!")
-    #         st.write(ds.get_hypertune_data(button_label))
-    #         st.write()
 
+    selected_directory = st.selectbox("Select a directory", directories)
 
-for dir_path in directories:
-    button_label = Path(dir_path).name
-    if st.button(button_label):
-        select, plot = ds.get_hypertune_data(dir_path,directory)
-        if select is not None and plot is not None:
-            # Convert plot to DataFrame
-            plot_df = pd.DataFrame(plot)
-
-            # Perform further operations with select and plot_df
-            st.write(f"Selected metrics: {select}")
-            st.write("Plot DataFrame:")
-            st.write(plot_df)
-   
+    if st.button("Get Hypertune Data"):
+        plot,p = ds.get_hypertune_data(selected_directory, directory)
+        plot_df = pd.DataFrame(p)
+        st.dataframe(plot_df)
+        print(plot_df.columns) 
+        fig = px.parallel_coordinates(plot_df, color="Accuracy", color_continuous_scale="Blackbody")
+        fig.update_layout(width=1100, height=600)
+        st.plotly_chart(fig)
 
 ########################################Day tab########################################
 
