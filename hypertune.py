@@ -73,7 +73,7 @@ if __name__ == "__main__":
     config = SearchSpace(
         input_size=13,
         output_size=20,
-        tune_dir=Path("models/ray").resolve(),
+        tune_dir=str("models/ray"),
         data_dir=Path("data/raw/").resolve(),
     )
 
@@ -96,7 +96,7 @@ if __name__ == "__main__":
         mode="min",
         progress_reporter=reporter,
         local_dir=config.tune_dir,
-        num_samples=50,
+        num_samples=25,
         search_alg=bohb_search,
         scheduler=bohb_hyperband,
         verbose=1,
