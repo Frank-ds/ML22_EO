@@ -35,7 +35,7 @@ def train(config: Dict, checkpoint_dir=None):
     model = rnn_models.AttentionGRU(config)
 
     trainersettings = TrainerSettings(
-        epochs=25,
+        epochs=50,
         metrics=[accuracy],
         logdir=".",
         train_steps=len(trainloader),
@@ -96,7 +96,7 @@ if __name__ == "__main__":
         mode="min",
         progress_reporter=reporter,
         local_dir=config.tune_dir,
-        num_samples=25,
+        num_samples=50,
         search_alg=bohb_search,
         scheduler=bohb_hyperband,
         verbose=1,

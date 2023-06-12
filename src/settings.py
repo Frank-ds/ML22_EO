@@ -92,10 +92,10 @@ class BaseSearchSpace(BaseModel):
 
 # this is what ray will use to create configs
 class SearchSpace(BaseSearchSpace):
-    hidden_size: Union[int, SAMPLE_INT] = tune.randint(200, 256)
+    hidden_size: Union[int, SAMPLE_INT] = tune.qrandint(200, 256,2)
     dropout: Union[float, SAMPLE_FLOAT] = tune.uniform(0.0, 0.3)
     num_layers: Union[int, SAMPLE_INT] = tune.randint(2, 4)
-    num_heads: Union[int, SAMPLE_INT] = tune.qrandint(0, 12, 4)
+    num_heads: Union[int, SAMPLE_INT] = tune.qrandint(0, 4)
 
 
 # qrandint number of layers om crash te voorkomen (number heads)
